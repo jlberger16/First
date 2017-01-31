@@ -1,0 +1,116 @@
+<!-- Bootstrap v3.0.3 -->
+<link href="https://s3.amazonaws.com/mturk-public/bs30/css/bootstrap.min.css" rel="stylesheet" />
+<!-- start instruction block -->
+<section class="container" id="topInstructions" style="margin-bottom:15px; padding: 10px 10px; font-family: Verdana, Geneva, sans-serif; color:#333333; font-size:0.9em;">
+<div class="row col-xs-12 col-md-12">
+<!-- start instructions -->
+<div class="panel panel-primary">
+<div class="panel-heading"><strong>Instructions</strong></div>
+
+<div class="panel-body" id="instructions">
+
+<div>Read the following 5 email messages and write an <span style="color:#FF0000;">abbreviated</span> form of them in the respected textbox.</div>
+
+<div>When deciding how to abbreviate a word, concentrate on <span style="color:#FF0000;">maximum brevity</span>,<em> taking the risk of a reader potentially being uncertain</em>, in order to <span style="color:#FF0000;">concentrate on losing as many letters as possible</span>.</div>
+
+<div><em>If there are any names, places, or companies, please do not abbreviate. </em></div>
+
+<div><em>If you are unsure of a word, please do not abbreviate. </em></div>
+
+<div><strong>Please review the examples below for further clarity.</strong></div>
+
+<div>&nbsp;</div>
+
+<pre>
+Example 1</pre>
+
+<h5>&quot;Did you hear Alice quit? Couldn&#39;t risk the uncertainty.&quot; &nbsp;</h5>
+
+<h5>Abbreviation: &quot;Dd u hr Alice qt? Cdnt rk t ucert.&quot; <u>or</u> &quot;Di u her Alice qut? Cldt rs t uncty&quot;</h5>
+
+<p style="text-align: right;"><em>Notice &#39;Alice&#39; is a name so I didn&#39;t abbreviate it.&nbsp;</em></p>
+
+<pre>
+Example 2</pre>
+
+<h5>&quot;Need anything from Target?&quot;&nbsp;</h5>
+
+<h5>Abbreviation: &quot;Nd nethg frm Target?&quot; <u>or</u> &quot;Ned aytg fm Target?&quot;</h5>
+
+<p style="text-align: right;"><em>Notice &#39;Target&#39; is a company so I didn&#39;t abbreviate it.</em></p>
+
+<pre>
+Example 3</pre>
+
+<h5>&quot;<span class="vmod">The EERC is one block north of where you are.</span>&quot;</h5>
+
+<h5>Abbreviation: &quot;T EERC i 1 blk N o whr u r&quot; <u>or</u> &quot;Te EERC s oe blc nr o wr u r&quot;</h5>
+
+<p style="text-align: right;"><em>Notice &#39;EERC&#39; is not abbreviated because I am unsure of what it is.&nbsp;</em></p>
+
+</div> <!-- end instructions (panel-body) -->
+</div> <!-- end panel panel-primary -->
+
+
+<script>
+
+function displayEmail(i){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function(){
+		if(this.readyState == 4 && this.status == 200){
+			myFunction(this,i);
+		}
+	};
+	xmlhttp.open("GET","smallEmail.xml",true);
+	xmlhttp.send();
+}
+
+function myFunction(xml,i){
+	var xmlDoc = xml.responseXML;
+	x = xmlDoc.getElementsByTagName("emails");
+	document.getElementById("Que1").innerHTML = "Original Email: " + x[i].getElementsByTagName("message")[0].childNodes[0].nodeValue;
+}
+</script>
+
+<!-- Give 5 emails plus textbox to abbreviate in --> 
+<section>
+<fieldset>
+<label>1. <p id='Que1'></p> </label><textarea class="form-control" cols="120" name="Q1" rows="5"></textarea>
+</fieldset>
+
+<fieldset>
+<label>2. <script></script></label><textarea class="form-control" cols="120" name="Q2" rows="5"></textarea>
+</fieldset>
+
+<fieldset>
+<label>3. <script></script></label><textarea class="form-control" cols="120" name="Q3" rows="5"></textarea>
+</fieldset>
+
+<fieldset>
+<label>4. <script></script></label><textarea class="form-control" cols="120" name="Q4" rows="5"></textarea>
+</fieldset>
+
+<fieldset>
+<label>5. <script></script></label><textarea class="form-control" cols="120" name="Q5" rows="5"></textarea>
+</fieldset>
+
+</section>
+
+<p style="text-align: right;">
+Thank you for your participation !! <br/>
+You may now submit this hit. <br/>
+
+</p> 
+
+
+</div> <!-- end Content Body (row col-xs-12 col-md-12) -->
+</section> <!-- end instruction block (id = topInstructions) -->
+
+<!-- Style the fieldsets (input text boxes) -->
+<style type="text/css">fieldset {
+    padding: 10px;
+    background:#fbfbfb;
+    border-radius:5px;
+    margin-bottom:5px;
+}
+</style>
